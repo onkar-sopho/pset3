@@ -17,7 +17,7 @@
 
 bool search(int value, int values[], int n)
 {
-    // TODO: implement a searching algorithm - here linear search
+    // Implements linear search
   
     if (n < 0)
     {
@@ -41,27 +41,27 @@ bool search(int value, int values[], int n)
 
 void sort(int values[], int n)
 {
-    // insertion sort is implemented here
+    // Bubble sort is implemented here
     
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < n - 1; i++)
     {
-        // Element that is currently moving into sorted portion
-        int element = values[i];
+        int min = i;
         
-        int j = i;
-        
-        // Move through the sorted portion
-        while(j > 0 && values[j - 1] > element)
+        for (int j = i + 1; j < n; j++)
         {
-            // Make space for the new sorted element
-            values[j] = values[j - 1];
-            j = j - 1;
+            if (values[j] < values[min])
+            {
+                min = j;
+            }
         }
         
-        // Insert the new element
-        values[j] = element;
-        
-        
+        if (min != i)
+        { 
+            int swap = values[i];    
+            values[i] = values[min];  
+            values[min] = swap;
+        }
+              
     }
-    
+   
 }
