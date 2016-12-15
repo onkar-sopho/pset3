@@ -39,6 +39,8 @@ bool search(int value, int values[], int n)
  */
 void sort(int values[], int n)
 {
+    // Selection sort is implemented here
+    
     int temp;
     
     for (int i = 0; i < n; i++)
@@ -49,6 +51,8 @@ void sort(int values[], int n)
             if (values[j] < values[small])
                 small = j;
         }
+        
+        // Swapping the values now
         
         temp = values[small];
         values[small] = values[i];
