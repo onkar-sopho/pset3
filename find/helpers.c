@@ -14,9 +14,10 @@
 /**
  * Returns true if value is in array of n values, else false.
  */
+
 bool search(int value, int values[], int n)
 {
-    // TODO: implement a searching algorithm
+    // TODO: implement a searching algorithm - here linear search
   
     if (n < 0)
     {
@@ -37,26 +38,30 @@ bool search(int value, int values[], int n)
 /**
  * Sorts array of n values.
  */
+
 void sort(int values[], int n)
 {
-    // Selection sort is implemented here
-    
-    int temp;
+    // insertion sort is implemented here
     
     for (int i = 0; i < n; i++)
     {
-        int small = i;
-        for (int j = i + 1; j < n; j++)
+        // Element that is currently moving into sorted portion
+        int element = values[i];
+        
+        int j = i;
+        
+        // Move through the sorted portion
+        while(j > 0 && values[j - 1] > element)
         {
-            if (values[j] < values[small])
-                small = j;
+            // Make space for the new sorted element
+            values[j] = values[j - 1];
+            j = j - 1;
         }
         
-        // Swapping the values now
+        // Insert the new element
+        values[j] = element;
         
-        temp = values[small];
-        values[small] = values[i];
-        values[i] = temp;
+        
     }
     
 }
