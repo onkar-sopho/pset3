@@ -17,22 +17,47 @@
 
 bool search(int value, int values[], int n)
 {
-    // Implements linear search
+    // Reimplemented the function using binary search
+  
+    int first, last, middle;
+    first = 0;
+    last = n - 1;
+    middle = (first + last) / 2;
   
     if (n < 0)
     {
         return false;
     }
-      
-    for (int i = 0; i < n; i++)
+    
+    while(first <= last)
     {
-        if (values[i] == value)
+        if (values[middle] == value)
         {
             return true;
         }
+      
+        else if (values[middle] < value)
+        {
+            first = middle + 1;
+            middle = (first + last) / 2;
+        }
+     
+        else if (values[middle] > value)
+        {
+            last = middle - 1;
+            middle = (first + last) / 2;
+        }
+     
+     
+    }
+  
+    if (first > last)
+    {
+        return false;
     }
    
     return false;
+    
 }
 
 /**
