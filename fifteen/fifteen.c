@@ -159,7 +159,25 @@ void greet(void)
  */
 void init(void)
 { 
-   // TODO
+   int x = (d * d) - 1;
+  
+   // Initialising the array
+    for (int i = 0; i < d; i++)
+    {
+        for (int j = 0; j < d; j++)
+        {
+            board[i][j] = x--;
+        }
+    }
+    
+    // Swapping 1 & 2 if there are odd no. of tiles (blank tile is excluded)
+    if (d % 2 == 0)
+    {   
+        int temp = board[d - 1][d - 3];
+        board[d - 1][d - 3] = board[d - 1][d - 2];
+        board[d - 1][d - 2] = temp;
+    }
+
 }
 
 
