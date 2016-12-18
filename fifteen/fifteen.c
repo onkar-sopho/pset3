@@ -268,6 +268,33 @@ bool move(int tile)
  */
 bool won(void)
 {
-    // TODO
+    int y = 1;
+   
+    // checking if bottom-right tile is blank
+    if (board[d - 1][d - 1] != 0)
+    {
+        return false;
+    }
+   
+    // checking if all the tiles are arranged in ascending order
+    for (int i = 0; i < d; i++)
+    {
+        for (int j = 0; j < d; j++)
+        {
+            if (i == d - 1 && j == d - 1)
+            {
+                return true;
+            }
+         
+            if (board[i][j] != y )
+            {
+                return false;
+            }
+            
+            y++;
+         
+        }
+    }
+
     return false;
 }
